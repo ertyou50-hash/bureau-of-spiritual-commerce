@@ -254,7 +254,7 @@ body.horror .form-group input,body.horror .form-group select{background:#120a1a;
 body.horror .btn-gen{background:#1a0000}
 .id-preview{display:flex;flex-direction:column;gap:16px;align-items:center}
 .id-preview canvas{max-width:100%;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.15)}
-.btn-dl{background:var(--accent);color:#fff;border:none;padding:10px 28px;font-size:13px;font-weight:700;letter-spacing:1px;display:none;margin-top:8px}
+.btn-dl{background:var(--accent);color:#fff;border:none;padding:10px 28px;font-size:13px;font-weight:700;letter-spacing:1px;display:inline-block;margin-top:8px;cursor:pointer}
 .btn-dl:hover{opacity:.85}
 
 /* BULLETIN BOARD */
@@ -1632,8 +1632,8 @@ function generateCard(){
   if(!name||!dob){alert('성명과 생년월일을 입력하세요.');return;}
   const DEPT={'인도조율과':['영무집행국','00'],'분쟁집행과':['영무집행국','01'],'상황총괄과':['영무집행국','02'],'민원사후과':['영무집행국','03'],'영무통상국':['영무통상국','04'],'정보자원국':['정보자원국','05'],'기획조정관':['기획조정관','06'],'감찰보안국':['감찰보안국','07']};
   const di=DEPT[dept]||['영무집행국','00']; const bureau=di[0], code=di[1];
-  const dp=dob.split(/\D+/).filter(Boolean);
-  const mmdd=(dp.length>=3)?(String(dp[1]).padStart(2,'0')+String(dp[2]).padStart(2,'0')):'0000';
+  const digits=dob.replace(/\D/g,'');
+  const mmdd=(digits.length>=8)?digits.slice(4,8):(digits.length>=4?digits.slice(-4):'0000');
   const idNum=code+mmdd;
   const now=new Date();
   const issue=now.getFullYear()+'년 '+(now.getMonth()+1)+'월 '+now.getDate()+'일';

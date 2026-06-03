@@ -1646,8 +1646,8 @@ function generateCard(){
     fx.drawImage(tf,0,0,506,799);
     const txt=()=>{
       fx.textAlign='center';
-      fx.fillStyle='#1a1a1a'; fx.font='bold 27px '+FONT; fx.fillText(name,253,620);
-      fx.fillStyle='#333';    fx.font='18px '+FONT;      fx.fillText(rank,253,660);
+      fx.fillStyle='#1a1a1a'; fx.font='bold 36px '+FONT; fx.fillText(name,253,624);
+      fx.fillStyle='#333';    fx.font='24px '+FONT;      fx.fillText(rank,253,668);
     };
     if(photoFile){
       const r=new FileReader();
@@ -1667,7 +1667,7 @@ function generateCard(){
   const tb=new Image();
   tb.onload=()=>{
     bx.drawImage(tb,0,0,506,799);
-    bx.fillStyle='#1a1a1a'; bx.font='15px '+FONT;
+    bx.fillStyle='#1a1a1a'; bx.font='20px '+FONT;
     bx.textAlign='right'; bx.fillText(join,128,68);
     bx.textAlign='left';  bx.fillText(idNum,173,68);
     bx.fillText('영무통상청 '+bureau,205,301);
@@ -1707,11 +1707,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 });
 
 // Fix canvas placeholder
-document.getElementById('id-canvas').addEventListener('DOMContentLoaded',function(){
-  document.getElementById('card-placeholder').style.display='none';
-});
-// Hide placeholder when canvas shown
-const _origShowCard = showCardResult;
 
 // ══ 령령이 캐러셀 ══
 const RC_DRONES=[
